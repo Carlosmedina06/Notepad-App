@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import { Container, NavItem, NavMenu } from './NavStyle'
 
@@ -7,7 +7,7 @@ const Nav = () => {
   return (
     <Container>
       <NavItem>
-        <NavLink to="/">LOGO</NavLink>
+        <Link to="/">LOGO</Link>
       </NavItem>
       <NavItem>
         <NavMenu>
@@ -15,7 +15,7 @@ const Nav = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/">Archived</NavLink>
+            <NavLink to="/archive">Archived</NavLink>
           </li>
         </NavMenu>
       </NavItem>

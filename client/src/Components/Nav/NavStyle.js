@@ -9,6 +9,12 @@ export const Container = styled.nav`
   border: solid 2px black;
   border-radius: 10px;
   padding: 10px;
+  .active {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+  }
 `
 export const NavItem = styled.div`
   margin: 0 20px;
