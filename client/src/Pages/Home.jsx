@@ -1,12 +1,14 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
+
+import { useNotesStore } from '../store/notesStore'
 
 const Home = () => {
-  const [allNotes, setAllNotes] = useState([])
+  const notes = useNotesStore((state) => state.notes)
+  const { createNote, deleteNote } = useNotesStore()
   const [note, setNote] = useState({})
 
   const handlerChange = (e) => {
-    const newNote = {
+    let newNote = {
       id: Date.now(),
       [e.target.name]: e.target.value,
     }
@@ -14,19 +16,19 @@ const Home = () => {
     setNote({ ...note, ...newNote })
   }
 
-  const handlerSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setAllNotes([...allNotes, note])
+    createNote(note)
   }
 
   const handleDelete = (id) => {
-    setAllNotes(allNotes.filter((note) => note.id !== id))
+    deleteNote(id)
   }
 
   return (
     <>
       <h1>Note App</h1>
-      <form onSubmit={handlerSubmit}>
+      <form onSubmit={handleSubmit}>
         <h2>Notes</h2>
         <label htmlFor="title">Title</label>
         <br />
@@ -38,20 +40,22 @@ const Home = () => {
         <input id="content" name="content" type="text" onChange={handlerChange} />
         <br />
         <br />
-        <button>Add Note</button>
+        <button type="submit">Add Note</button>
       </form>
       <br />
-      {!allNotes.length ? (
-        <h1>Notes not found</h1>
+
+      {!notes ? (
+        <p>Notes not found</p>
       ) : (
-        allNotes.map((note) => (
-          <div key={note.id}>
-            <p>{note.id}</p>
-            <h1>{note.title}</h1>
-            <p>{note.content}</p>
-            <button onClick={() => handleDelete(note.id)}>Delete</button>
-          </div>
-        ))
+        notes.map((note) => {
+          return (
+            <div key={note.id}>
+              <h2>{note.title}</h2>
+              <p>{note.content}</p>
+              <button onClick={() => handleDelete(note.id)}>Delete Note</button>
+            </div>
+          )
+        })
       )}
     </>
   )
