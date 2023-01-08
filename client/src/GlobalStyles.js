@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     scroll-behavior: smooth;
     list-style: none;
+    body {
+      background-color: #1A1B23;
+    }
   }
   a {
     text-decoration: none;
