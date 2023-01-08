@@ -5,13 +5,20 @@ export const Container = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: 80%;
+  font-weight: bold;
   margin: 20px auto;
-  border: solid 2px black;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
+  background-color: #20232e;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: #fff;
+  svg {
+    width: 30px;
+    height: 30px;
+  }
   .active {
-    background-color: black;
-    color: white;
+    border: solid 2px #00a3fe;
+    color: #fff;
     border-radius: 10px;
     padding: 5px;
   }

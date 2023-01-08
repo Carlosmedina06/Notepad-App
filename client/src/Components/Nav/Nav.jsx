@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { FcViewDetails } from 'react-icons/fc'
 
 import { Container, NavItem, NavMenu } from './NavStyle'
 
@@ -7,7 +8,12 @@ const Nav = () => {
   return (
     <Container>
       <NavItem>
-        <Link to="/">LOGO</Link>
+        <Link to="/">
+          <NavMenu>
+            <FcViewDetails />
+            <p>Note App</p>
+          </NavMenu>
+        </Link>
       </NavItem>
       <NavItem>
         <NavMenu>
