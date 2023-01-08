@@ -1,24 +1,35 @@
 import React from 'react'
 
-import { Container } from './FormStyle'
+import { Button, Container, Content, Input, TextArea } from './FormStyle'
 
 const Form = ({ handleChange, handleSubmit, input }) => {
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      <Content onSubmit={handleSubmit}>
         <h2>Create your note</h2>
         <label htmlFor="title">Title</label>
-        <input id="title" name="title" type="text" value={input.title} onChange={handleChange} />
+        <Input
+          autoComplete="off"
+          id="title"
+          name="title"
+          placeholder="Your title here"
+          type="text"
+          value={input.title}
+          onChange={handleChange}
+        />
         <label htmlFor="content">Content</label>
-        <input
+        <TextArea
+          cols="30"
           id="content"
           name="content"
-          type="text"
+          placeholder="Your content here"
+          rows="10"
           value={input.content}
           onChange={handleChange}
         />
-        <button type="submit">Add Note</button>
-      </form>
+
+        <Button type="submit">Add Note</Button>
+      </Content>
     </Container>
   )
 }
