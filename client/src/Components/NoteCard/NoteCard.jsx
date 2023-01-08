@@ -1,8 +1,10 @@
 import React from 'react'
 
+import { Container } from './NoteCardStyle'
+
 const NoteCard = ({ notes, handleDelete }) => {
   return (
-    <>
+    <Container>
       {notes.map((note) => {
         return (
           <div key={note.id}>
@@ -12,7 +14,7 @@ const NoteCard = ({ notes, handleDelete }) => {
           </div>
         )
       })}
-    </>
+    </Container>
   )
 }
 
