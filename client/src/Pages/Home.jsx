@@ -7,32 +7,28 @@ import { useNotesStore } from '../store/notesStore'
 const Home = () => {
   const notes = useNotesStore((state) => state.notes)
   const { createNote, deleteNote } = useNotesStore()
-  const [input, setInput] = useState({})
-  const [note, setNote] = useState({})
+  const [input, setInput] = useState({
+    title: '',
+    content: '',
+  })
 
-  const handlerChange = (e) => {
-    const { name, value } = e.target
-
+  const handleChange = (e) => {
     setInput({
       ...input,
-      [name]: value,
-    })
-
-    let newNote = {
       id: Date.now(),
-      ...input,
-    }
-
-    setNote({ ...note, ...newNote })
+      [e.target.name]: e.target.value,
+    })
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    createNote(note)
+    createNote({ ...notes, ...input })
     setInput({
       title: '',
       content: '',
     })
   }
+
   const handleDelete = (id) => {
     deleteNote(id)
   }
@@ -40,7 +36,7 @@ const Home = () => {
   return (
     <>
       <h1>Note App</h1>
-      <Form handleSubmit={handleSubmit} handlerChange={handlerChange} input={input} />
+      <Form handleChange={handleChange} handleSubmit={handleSubmit} input={input} />
       <NoteCard handleDelete={handleDelete} notes={notes} />
     </>
   )
