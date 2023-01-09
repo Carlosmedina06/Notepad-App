@@ -1,5 +1,5 @@
 import React from 'react'
-import { RiArchiveLine, RiCheckboxLine } from 'react-icons/ri'
+import { RiInboxArchiveLine, RiCloseFill, RiCheckFill } from 'react-icons/ri'
 
 import { Button, ButtonContainer, CardNote, Container, Content } from './NoteCardStyle'
 
@@ -14,11 +14,14 @@ const NoteCard = ({ notes, handleDelete }) => {
               <p>{note.content}</p>
             </Content>
             <ButtonContainer>
+              <Button title="completed note">
+                <RiCheckFill />
+              </Button>
               <Button title="delete note" onClick={() => handleDelete(note.id)}>
-                <RiCheckboxLine />
+                <RiCloseFill />
               </Button>
               <Button title="archive note">
-                <RiArchiveLine />
+                <RiInboxArchiveLine />
               </Button>
             </ButtonContainer>
           </CardNote>
