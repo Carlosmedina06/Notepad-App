@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     list-style: none;
     body {
-      background-color: #1A1B23;
+      background-color: ${({ theme }) => theme.bg};
     }
   }
   a {
