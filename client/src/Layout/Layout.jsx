@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
@@ -10,11 +10,13 @@ import Themes from '../Theme/Themes'
 import { LayoutStyle } from './LayoutStyle'
 
 const Layout = () => {
+  const [tema, setTema] = useState('DarkTheme')
+
   return (
-    <ThemeProvider theme={Themes['DarkTheme']}>
+    <ThemeProvider theme={Themes[tema]}>
       <LayoutStyle>
         <GlobalStyle />
-        <Nav />
+        <Nav setTema={setTema} tema={tema} />
         <main>
           <Outlet />
         </main>

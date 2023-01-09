@@ -7,9 +7,9 @@ export const Container = styled.article`
   width: 70%;
   margin: 5rem auto;
   padding: 20px 50px;
-  background-color: #20232e;
+  background-color: ${({ theme }) => theme.bgContainer};
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  color: #fff;
+  color: ${({ theme }) => theme.text};
   border-radius: 10px;
   label {
     font-weight: bold;
@@ -23,9 +23,9 @@ export const Content = styled.form`
   gap: 1rem;
 `
 export const Input = styled.input`
-  color: #fff;
-  background-color: rgb(28, 28, 30);
-  box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.bgInput};
+  box-shadow: ${({ theme }) => theme.boxShadowInput};
   border-radius: 0.4vw;
   border: none;
   outline: none;
@@ -33,7 +33,7 @@ export const Input = styled.input`
   max-width: 190px;
   transition: 0.4s;
   &:hover {
-    box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+    box-shadow: ${({ theme }) => theme.boxShadowInputHover};
   }
   &:focus {
     box-shadow: 0 0 0 0.15vw skyblue;
@@ -41,9 +41,9 @@ export const Input = styled.input`
 `
 
 export const TextArea = styled.textarea`
-  color: #fff;
-  background-color: rgb(28, 28, 30);
-  box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.bgInput};
+  box-shadow: ${({ theme }) => theme.boxShadowInput};
   border-radius: 0.4vw;
   border: none;
   outline: none;
@@ -52,7 +52,7 @@ export const TextArea = styled.textarea`
   resize: none;
   transition: 0.4s;
   &:hover {
-    box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+    box-shadow: ${({ theme }) => theme.boxShadowInputHover};
   }
   &:focus {
     box-shadow: 0 0 0 0.15vw skyblue;

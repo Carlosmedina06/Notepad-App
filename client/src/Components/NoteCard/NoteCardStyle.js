@@ -17,8 +17,8 @@ export const CardNote = styled.div`
   min-height: 100px;
   max-height: max-content;
   border-radius: 10px;
-  color: #fff;
-  background-color: #20232e;
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.bgContainer};
   justify-content: space-between;
 `
 export const Content = styled.div`
@@ -40,7 +40,7 @@ export const ButtonContainer = styled.div`
 export const Button = styled.button`
   border: none;
   background: transparent;
-  color: #fff;
+  color: ${({ theme }) => theme.text};
   font-size: 20px;
   cursor: pointer;
 `

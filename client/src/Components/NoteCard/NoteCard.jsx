@@ -14,10 +14,10 @@ const NoteCard = ({ notes, handleDelete }) => {
               <p>{note.content}</p>
             </Content>
             <ButtonContainer>
-              <Button onClick={() => handleDelete(note.id)}>
+              <Button title="delete note" onClick={() => handleDelete(note.id)}>
                 <RiCheckboxLine />
               </Button>
-              <Button>
+              <Button title="archive note">
                 <RiArchiveLine />
               </Button>
             </ButtonContainer>

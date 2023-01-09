@@ -1,10 +1,16 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FcViewDetails } from 'react-icons/fc'
+import { HiOutlineMoon, HiOutlineSun } from 'react-icons/hi'
 
-import { Container, NavItem, NavMenu } from './NavStyle'
+import { ButtonTheme, Container, NavItem, NavMenu } from './NavStyle'
 
-const Nav = () => {
+const Nav = ({ tema, setTema }) => {
+  const changeMode = () => {
+    if (tema === 'DarkTheme') setTema('LightTheme')
+    if (tema === 'LightTheme') setTema('DarkTheme')
+  }
+
   return (
     <Container>
       <NavItem>
@@ -23,6 +29,10 @@ const Nav = () => {
           <li>
             <NavLink to="/archived">Archived</NavLink>
           </li>
+          <ButtonTheme onClick={() => changeMode()}>
+            {tema === 'DarkTheme' ? <HiOutlineSun /> : <HiOutlineMoon />}
+          </ButtonTheme>
+          <li />
         </NavMenu>
       </NavItem>
     </Container>
