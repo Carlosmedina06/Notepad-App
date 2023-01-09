@@ -24,6 +24,8 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (input.title === '' || input.content === '') return
+    if (notes.find((notes) => notes.title === input.title)) return
     createNote({ ...notes, ...input })
     setInput({
       title: '',
