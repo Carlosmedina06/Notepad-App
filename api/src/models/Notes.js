@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 const noteSchema = new mongoose.Schema({
   title: String,
   content: String,
+  completed: Boolean,
 })
 
 noteSchema.set('toJSON', {
