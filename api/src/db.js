@@ -1,7 +1,10 @@
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config()
 
-const connectionString =
-  'mongodb+srv://carlosmedina06:admin@carlosdb.9aqig43.mongodb.net/notes?retryWrites=true&w=majority'
+const { DB_PASSWORD } = process.env
+
+const connectionString = `mongodb+srv://carlosmedina06:${DB_PASSWORD}@carlosdb.9aqig43.mongodb.net/notes?retryWrites=true&w=majority`
 
 const database = () => {
   mongoose
