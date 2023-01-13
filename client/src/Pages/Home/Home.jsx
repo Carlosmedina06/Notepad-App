@@ -8,7 +8,7 @@ import { Container } from './HomeStyle'
 
 const Home = () => {
   const notes = useNotesStore((state) => state.notes)
-  const { createNote, deleteNote, fetchNotes } = useNotesStore()
+  const { deleteNote, fetchNotes, postNote, updateNote } = useNotesStore()
   const [input, setInput] = useState({
     title: '',
     content: '',
@@ -30,7 +30,7 @@ const Home = () => {
     e.preventDefault()
     if (input.title === '' || input.content === '') return
     if (notes.find((notes) => notes.title === input.title)) return
-    createNote({ ...notes, ...input })
+    postNote({ ...notes, ...input })
     setInput({
       title: '',
       content: '',
@@ -41,10 +41,17 @@ const Home = () => {
     deleteNote(id)
   }
 
+  const handleComplete = (id) => {
+    const note = notes.find((note) => note.id === id)
+
+    note.completed = !note.completed
+    updateNote(note, note.completed)
+  }
+
   return (
     <Container>
       <Form handleChange={handleChange} handleSubmit={handleSubmit} input={input} />
-      <NoteCard handleDelete={handleDelete} notes={notes} />
+      <NoteCard handleCompleted={handleComplete} handleDelete={handleDelete} notes={notes} />
     </Container>
   )
 }
