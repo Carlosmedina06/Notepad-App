@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Form from '../../Components/Form/Form'
 import NoteCard from '../../Components/NoteCard/NoteCard'
@@ -8,11 +8,15 @@ import { Container } from './HomeStyle'
 
 const Home = () => {
   const notes = useNotesStore((state) => state.notes)
-  const { createNote, deleteNote } = useNotesStore()
+  const { createNote, deleteNote, fetchNotes } = useNotesStore()
   const [input, setInput] = useState({
     title: '',
     content: '',
   })
+
+  useEffect(() => {
+    fetchNotes()
+  }, [fetchNotes])
 
   const handleChange = (e) => {
     setInput({
