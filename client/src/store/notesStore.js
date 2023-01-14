@@ -10,11 +10,7 @@ export const useNotesStore = create(
       fetchNotes: () => {
         fetch(url)
           .then((res) => res.json())
-          .then((notes) =>
-            set({
-              notes: notes,
-            }),
-          )
+          .then((notes) => set((state) => ({ ...state, notes: notes })))
       },
       postNote: (note) => {
         axios.post(url, note).then((res) => {
