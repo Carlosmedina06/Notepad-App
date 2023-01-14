@@ -44,3 +44,8 @@ export const Button = styled.button`
   font-size: 20px;
   cursor: pointer;
 `
+export const NotNote = styled.p`
+  color: ${({ theme }) => theme.text};
+  font-weight: bold;
+  user-select: none;
+`
